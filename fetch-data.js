@@ -8,17 +8,16 @@ try {
     const users = await response.json();
 
     dataContainer.innerHTML = '';
-    const userList = document.getElementById('ul');
-    users.forEach(user => {
-        const li = document.getElementById('li');
-        li.textContent = user.name
-        userList.appendChild(li);
-
+    const userList = document.createElement('ul');
+    users.fetch(function (user) {
+      const listItem = document.createElement('li');
+      listItem.textContent = user.name;
+      userList.appendChild(listItem);
     });
     dataContainer.appendChild(userList);
 } 
 catch (error) {
-    dataContainer.innerHTML = 'Failed to load user data';
-    console.error('Error fetching users:', error);
+    dataContainer.innerHTML = '';
+    dataContainer.textContent = 'Failed to load data';
 } }
 document.getElementById('DOMContentLoaded', fetchUserData);
