@@ -9,7 +9,7 @@ try {
 
     dataContainer.innerHTML = '';
     const userList = document.createElement('ul');
-    users.fetch(function (user) {
+    users.forEach(function (user) {
       const listItem = document.createElement('li');
       listItem.textContent = user.name;
       userList.appendChild(listItem);
@@ -20,4 +20,4 @@ catch (error) {
     dataContainer.innerHTML = '';
     dataContainer.textContent = 'Failed to load data';
 } }
-document.getElementById('DOMContentLoaded', fetchUserData);
+document.addEventListener('DOMContentLoaded', fetchUserData);
